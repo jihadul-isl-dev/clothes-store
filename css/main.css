@@ -153,6 +153,80 @@ html {
     opacity: 0;
   }
 }
+.products {
+  grid-column: 1/-1;
+  grid-row: 3/4;
+}
+.products-heading {
+  margin: 5rem 0;
+}
+.products-heading-text {
+  text-align: center;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: #333;
+}
+.products-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product {
+  position: relative;
+}
+.product:hover .product-description {
+  opacity: 1;
+  visibility: visible;
+}
+.product:hover .product-img {
+  opacity: 0.5;
+}
+.product-img {
+  width: 100%;
+  transition: all 0.2s 0.5s;
+}
+.product-description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 238, 0.6);
+  padding: 2rem;
+  border: 0.1rem solid #333;
+  color: #333;
+  border-radius: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s 0.5s;
+}
+.product-description-heading {
+  font-size: 3rem;
+}
+.product-description-price {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+.product-description-price span {
+  font-weight: 600;
+}
+.product-description-btn {
+  text-decoration: none;
+  color: #f5b149;
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0.1rem solid #f5b149;
+  background-color: #666666;
+}
+
+.products-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo {
   grid-column: 1/2;
   grid-row: 1/2;
@@ -236,6 +310,67 @@ html {
 }
 .dropdown-link {
   font-weight: 300;
+}
+
+.btn {
+  width: 16rem;
+  height: 4rem;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.btn:hover .btn-bg {
+  width: 18rem;
+}
+.btn:hover .btn-text {
+  color: #ffe;
+}
+.btn:hover .arrow {
+  transform: translateX(1rem);
+}
+.btn:hover .arrow-line-1 {
+  width: 2rem;
+}
+.btn-bg {
+  width: 4rem;
+  height: 4rem;
+  background-color: #333;
+  border-radius: 5rem;
+  position: absolute;
+  left: 0;
+  transition: width 0.2s;
+}
+.btn-text {
+  text-transform: uppercase;
+  color: #333;
+  z-index: 10;
+}
+.btn .arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+}
+.btn .arrow-line {
+  height: 0.2rem;
+  background-color: #ffe;
+  position: absolute;
+  transform-origin: right;
+}
+.btn .arrow-line-1 {
+  width: 0;
+  transform: translateX(-0.7rem);
+  transition: width 0.2s;
+}
+.btn .arrow-line-2 {
+  width: 1rem;
+  transform: rotateZ(45deg);
+}
+.btn .arrow-line-3 {
+  width: 1rem;
+  transform: rotateZ(-45deg);
 }
 
 /*# sourceMappingURL=main.css.map */
