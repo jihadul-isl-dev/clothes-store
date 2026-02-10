@@ -1,0 +1,117 @@
+@use "../abstracts" as *;
+@use "sass:color" as c;
+
+.footer {
+  grid-column: 1/-1;
+  grid-row: 4/5;
+  @include flexPosition(space-around);
+  padding: 5rem 0;
+  border-top: 0.1rem solid color(primary);
+}
+
+.footer-nav {
+  @include footerList;
+}
+
+.contact-list {
+  @include footerList;
+}
+
+.contact {
+  &-heading {
+    font-size: size(xl);
+    color: color(primary);
+    text-align: center;
+  }
+
+  &-paragraph {
+    font-size: size(lg);
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .inputs-group {
+    display: flex;
+
+    input {
+      padding: 1rem;
+      font-size: size(xs);
+      margin: 1rem 0.5rem;
+      border: 0.1rem solid c.adjust(color(primary), $lightness: 10%);
+      border-radius: 0.3rem;
+      outline: none;
+      transition: border 0.5s;
+
+      &:focus:not([type="submit"]) {
+        border: 0.1rem solid c.adjust(color(quaternary), $lightness: 30%);
+      }
+    }
+
+    &-text {
+      width: 50%;
+    }
+
+    &-email {
+      width: 60%;
+    }
+
+    &-btn {
+      width: 40%;
+      color: color(secondary);
+      background-color: c.adjust(color(primary), $lightness: 20%);
+      transition: background-color;
+
+      &:hover {
+        background-color: color(primary);
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    &-item {
+      list-style: none;
+    }
+
+    &-link {
+      text-decoration: none;
+      width: 4rem;
+      height: 4rem;
+      border: 0.1rem solid color(primary);
+      border-radius: 100%;
+      @include flexPosition;
+
+      i {
+        font-size: size(md);
+      }
+    }
+  }
+}
+
+$socialMediaColors:
+  1 #3b5998,
+  2 #b31217,
+  3 #dc4e41,
+  4 #55acee,
+  5 #517fa4,
+  6 #c13584;
+
+// @each $color in $socialMediaColors {
+//   .social-icons-item:nth-child(#{nth($color, 1)}) .social-icons-link {
+//     color: nth($color, 2);
+//     border: 0.1rem solid nth($color, 2);
+//   }
+// }
+
+// ========== clean version ============
+
+@each $i, $color in $socialMediaColors {
+  .social-icons-item:nth-child(#{$i}) .social-icons-link {
+    color: $color;
+    border: 0.1rem solid $color;
+  }
+}
